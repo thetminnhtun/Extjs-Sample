@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            Ext.create('Ext.Button', {
+                text: 'Show date result',
+                renderTo: document.body,
+                handler() {
+                    alert(`
+                    \n From Date = ${Ext.getCmp('from_date').getValue()}
+                    \n To Date = ${Ext.getCmp('to_date').getValue()}
+                    `)
+                }
+            });
+
+            Ext.create('Ext.form.Panel', {
+                title: 'Choose Date',
+                renderTo: Ext.getBody(),
+                width: 400,
+                paddingBody: 10,
+                items: [
+                    {
+                        xtype: 'datefield',
+                        fieldLabel: 'From Date',
+                        id: 'from_date',
+                        maxValue: new Date()                   
+                    },
+                    {
+                        xtype: 'datefield',
+                        fieldLabel: 'To Date',
+                        id: 'to_date',
+                        value: new Date(),
+                        anchor: '100%' // fullwidth
+                    }
+                ]
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

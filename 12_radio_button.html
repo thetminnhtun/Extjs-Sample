@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            Ext.create('Ext.form.Panel', {
+                title: 'Order Form',
+                width: 300,
+                bodyPadding: 10,
+                renderTo: Ext.getBody(),
+                items: [
+                    {xtype: 'label', text: 'Test radio'},
+                    {
+                        fieldLabel: 'First',
+                        xtype: 'radio',
+                        id: 'rb1',
+                        name: 'rbGroup',
+                        inputValue: 'my first',
+                        checked: false,
+                        hideLabel: false,
+                        listeners: {
+                            change(field, newValue, oldValue) {
+                                if(newValue)
+                                    alert(field.inputValue + ' is Selected');
+                            }
+                        }
+                    },
+                    {
+                        fieldLabel: 'Second',
+                        xtype: 'radio',
+                        id: 'rb2',
+                        name: 'rbGroup',
+                        inputValue: 'my second',
+                        checked: false,
+                        hideLabel: false,
+                        listeners: {
+                            change(field, newValue, oldValue) {
+                                if(newValue) {
+                                    alert(field.inputValue + ' is Selected');
+                                }
+                            }
+                        }
+                    },
+                    {
+                        fieldLabel: 'Third',
+                        xtype: 'radio',
+                        id: 'rb3',
+                        name: 'rbGroup',
+                        inputValue: 'my third',
+                        checked: false,
+                        hideLabel: false,
+                        listeners: {
+                            change(field, newValue, oldValue) {
+                                if(newValue) {
+                                    alert(field.inputValue + ' is Selected');
+                                }
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

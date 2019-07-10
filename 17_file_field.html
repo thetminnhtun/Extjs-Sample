@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            Ext.create('Ext.form.Panel', {
+                title: 'Upload a photo',
+                width: 400,
+                bodyPadding: 10,
+                frame: true,
+                renderTo: Ext.getBody(),
+                items: [
+                    {
+                        xtype: 'filefield',
+                        name: 'photo',
+                        id: 'fileId',
+                        fieldLabel: 'Photo',
+                        lablelWidth: 50,
+                        msgTarget: 'side',
+                        allowBlank: false,
+                        anchor: '100%',
+                        buttonText: 'Select Photo...'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Upload',
+                        handler() {
+                            Ext.Msg.alert(
+                                'Success',
+                                `Your file ${Ext.getCmp('fileId').getValue()} has been uploaded.`
+                            )
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

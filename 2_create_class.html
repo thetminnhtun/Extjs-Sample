@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+           Ext.define('CustomClass.Student', {
+               studentName: 'unknown',
+               id: 0,
+               constructor: function(studentName, id) {
+                    this.studentName = studentName;
+                    this.id = id;
+               },
+               getStudentDetails: function() {
+                   document.write("<br>Stundent name is " +  this.studentName);
+                   document.write("<br>Student id is " + this.id);
+               }
+           }); 
+
+           var student = new Ext.create('CustomClass.Student');
+           student.getStudentDetails();
+
+           document.write('<br><br>');
+
+           student = new Ext.create('CustomClass.Student', 'John Doe', 3000);
+           student.getStudentDetails();
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

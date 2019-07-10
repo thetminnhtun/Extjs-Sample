@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            Ext.create('Ext.form.Panel', {
+                title: 'Contact Info',
+                width: 300,
+                bodyPadding: 10,
+                renderTo: Ext.getBody(),
+                items: [
+                    {
+                        xtype: 'textfield',
+                        name: 'name',
+                        fieldLabel: 'Name',
+                        allowBlank: false, // Required
+                        vtype: 'alphanum'
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'email',
+                        fieldLabel: 'Email',
+                        vtype: 'email'
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'phone',
+                        fieldLabel: 'Phone',
+                        validator(val) {
+                            var tn = val.replace(/[^0-9]/g, '');
+                            var errMsg = 'Must be a number';
+                            return (tn.length === 10) ? true : errMsg;
+                        }
+                    }
+
+                ]
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

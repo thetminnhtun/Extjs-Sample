@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.define('Person', {
+            config: {
+                name: 'unknow name',
+                age: 'unknow age'
+            }, 
+            constructor(config) {
+                this.initConfig(config);
+            }
+        });
+
+            const person = new Ext.create('Person');
+            person.initConfig();
+            document.write(person.getName());
+            document.write('<br>');
+            document.write(person.getAge());
+            document.write('<br>');
+            person.setName('john doe');
+            person.setAge(20);
+            // person.setAddress('Yangon'); // not working
+            document.write('<br>');
+            document.write(Ext.String.capitalize(person.getName()));
+            document.write('<br>');
+            document.write(person.getAge());
+            document.write('<br>');
+            // document.write(person.getAddress());
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

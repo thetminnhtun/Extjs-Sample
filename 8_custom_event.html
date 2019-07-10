@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.define('Student', {
+            config: {
+                name: ''
+            },
+            mixins: {
+                observable: 'Ext.util.Observable'
+            },
+            constructor(config) {
+                this.mixins.observable.constructor.call(this, config);
+            },
+            updateName(newValue) {
+                this.fireEvent('studentNameChanged', newValue)
+            }
+        });
+
+        var student = new Ext.create('Student', {name: 'Mg Mg'});
+        student.on('studentNameChanged', name => {
+            document.write(`Student name, ${name} have been changed.`);
+        });
+        student.setName('Aung Aung');
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            Ext.create('Ext.Button', {
+                renderTo: Ext.getBody(),
+                text: 'Click me',
+                handler() {
+                    alert('Clicked')
+                }
+            });
+
+            Ext.create('Ext.form.Panel', {
+                title: 'Panle Title',
+                width: 400,
+                bodyPadding: 10,
+                renderTo: Ext.getBody(),
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'label',
+                        id: 'lableId',
+                        text: 'Enter text',
+                        margin: '0 10',
+                    },
+                    {
+                        xtype: 'textfield',
+                        id: 'myText',
+                    },
+                    {
+                        xtype: 'button',
+                        text: 'Submit',
+                        handler() {
+                            alert(`Text field value is ${Ext.getCmp('myText').getValue()}`)
+                            Ext.getCmp('myText').setValue('');
+                        }
+                    }
+                ]
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div>
+        My Div
+    </div>
+</body>
+</html>

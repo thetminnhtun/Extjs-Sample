@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.define('Userpanel', {
+            constructor() {
+                this.createPanel();
+            },
+            seeStatusHandler() {
+                var mydiv = document.getElementById('mydiv');
+                mydiv.innerHTML = 'You have selected';
+                var status = Ext.getCmp('checkbox1').getValue();
+                if(status) {
+                    mydiv.innerHTML += ' ' + Ext.getCmp('checkbox1').boxLabel;
+                    status = Ext.getCmp('checkbox2').getValue();
+                }
+                if(status) {
+                    mydiv.innerHTML += ' ' + Ext.getCmp('checkbox2').boxLabel;
+                    status = Ext.getCmp('checkbox3').getValue();
+                }
+                if(status) {
+                    mydiv.innerHTML += ' ' + Ext.getCmp('checkbox3').boxLabel;
+                }
+            },
+            selectAllHandler() {
+                Ext.getCmp('checkbox1').setValue(true);
+                Ext.getCmp('checkbox2').setValue(true);
+                Ext.getCmp('checkbox3').setValue(true);
+            },
+            deselectAllHandler() {
+                Ext.getCmp('checkbox1').setValue(false);
+                Ext.getCmp('checkbox2').setValue(false);
+                Ext.getCmp('checkbox3').setValue(false);
+            },
+            createPanel() {
+                this.userPanel = Ext.create('Ext.form.Panel', {
+                    bodyPadding: 10,
+                    width: 300,
+                    id: 'userPanel',
+                    title: 'Ext JS Checkbox Demo',  
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            fieldLabel: 'Select Technology',
+                            defaultType: 'checkboxfield',
+                            items: [
+                                {
+                                    boxLabel: 'C++',
+                                    name: 'technology',
+                                    inputValue: 1,
+                                    id: 'checkbox1'
+                                },
+                                {
+                                    boxLabel: 'Java',
+                                    name: 'technology',
+                                    inputValue: 2,
+                                    id: 'checkbox2',
+                                },
+                                {
+                                    boxLabel: 'PHP',
+                                    name: 'technology',
+                                    inputValue: 3,
+                                    id: 'checkbox3'
+                                }
+                            ]
+                        }
+                    ],
+                    bbar: [
+                        {
+                            text: 'See Status',
+                            handler: this.seeStatusHandler
+                        },
+                        {
+                            text: 'Select All',
+                            handler: this.selectAllHandler
+                        },
+                        {
+                            text: 'Deselect All',
+                            handler: this.deselectAllHandler
+                        }
+                    ],
+                    renderTo: Ext.getBody(),
+                });
+            }
+        });
+
+        Ext.onReady(() => {
+            Ext.create('Userpanel');
+        });
+    </script>
+</head>
+<body>
+    <div id="mydiv"></div>
+</body>
+</html>

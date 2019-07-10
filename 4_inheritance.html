@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.define('Person', {
+            name: '',
+            schoolName: '',
+            constructor(name, schoolName) {
+                this.name = name;
+                this.schoolName = schoolName;
+            },
+            getName() {
+                document.writeln('Name is:' + this.name );
+            },
+            getSchoolName() {
+                document.writeln('School name is: ' + this.schoolName);
+            }
+        });
+
+        Ext.define('Student', {
+            extend: 'Person',
+            constructor(name, schoolName) {
+                // call parent class constructor
+                this.callParent(arguments);
+            },
+        });
+
+        var student = new Ext.create('Student', 'John Doe', 'BEHS School');
+        student.getName();
+        document.write('<br>');
+        student.getSchoolName();
+    </script>
+</head>
+
+<body>
+    
+</body>
+
+</html>

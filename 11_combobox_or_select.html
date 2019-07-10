@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    <script>
+        Ext.onReady(() => {
+            var states = Ext.create('Ext.data.Store', {
+                fields: ['id', 'name'],
+                data: [
+                    {id: '1', name: 'Myanmar'},
+                    {id: '2', name: 'Japan'},
+                    {id: '3', name: 'Singapore'},
+                ]
+            });
+
+            // Create combo box or select with states data
+            Ext.create('Ext.form.ComboBox', {
+                fieldLabel: 'Choose country',
+                store: states,
+                queryModel: 'local',
+                displayField: 'name',
+                valueField: 'id',
+                renderTo: Ext.getBody()
+            });
+        });
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html> 
